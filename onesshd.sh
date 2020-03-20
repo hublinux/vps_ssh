@@ -13,24 +13,25 @@ green "=========================================================="
  blue "备份后的文件与原文件在同一个目录 "
 green "=========================================================="
 cpoy /etc/ssh/sshd_config /etc/ssh/sshd_config.back
-
+echo $?
 green "=========================================================="
  blue "准备下载sshd配置文件，并修改VPS中的sshd_config "
 green "=========================================================="
 wget -N --no-check-certificate "https://raw.githubusercontent.com/hublinux/vps_ssh/master/sshd_config" && cat sshd_config > /etc/ssh/sshd_config
-
+echo $?
 green "=========================================================="
 blue "重新启动sshd服务 "
 green "=========================================================="
 systemctl restart sshd
-
+echo $?
 green "=========================================================="
 blue "更新你的root密码 "
 green "=========================================================="
-read -p "输入新的root密码:" passowrd
-echo “$passowrd” | passwd –stdin root
+#read -p "输入新的root密码:" passowrd
+#echo “$passowrd” | passwd –stdin root
+passwd root
 
 green "=========================================================="
-blue "运行完毕！你更新后的root是:$passowrd"
+blue "运行完毕！root已经更新"
 blue "现在用ssh远程连接工具登录试试吧！"
 green "=========================================================="

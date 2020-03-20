@@ -12,7 +12,7 @@ green "=========================================================="
  blue "首先，备份sshd配置文件，并将其文件名修改为sshd_config.back "
  blue "备份后的文件与原文件在同一个目录 "
 green "=========================================================="
-copy /etc/ssh/sshd_config /etc/ssh/sshd_config.back
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config.back
 echo $?
 green "=========================================================="
  blue "准备下载sshd配置文件，并修改VPS中的sshd_config "

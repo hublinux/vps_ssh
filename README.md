@@ -12,46 +12,87 @@ Linux常用命令
 文件
 
 ls -rtl                                    # 按时间倒叙列出所有目录和文件 ll -rt
+
 touch file                                 # 创建空白文件
+
 rm -rf dirname                             # 不提示删除非空目录(-r:递归删除 -f强制)
+
 dos2unix                                   # windows文本转linux文本
+
 unix2dos                                   # linux文本转windows文本
+
 enca filename                              # 查看编码  安装 yum install -y enca
+
 md5sum                                     # 查看md5值
+
 ln sourcefile newfile                      # 硬链接
+
 ln -s sourcefile newfile                   # 符号连接
+
 readlink -f /data                          # 查看连接真实目录
+
 cat file | nl |less                        # 查看上下翻页且显示行号  q退出
+
 head                                       # 查看文件开头内容
+
 head -c 10m                                # 截取文件中10M内容
+
 split -C 10M                               # 将文件切割大小为10M -C按行
+
 tail -f file                               # 查看结尾 监视日志文件
+
 tail -F file                               # 监视日志并重试, 针对文件被mv的情况可以持续读取
+
 file                                       # 检查文件类型
+
 umask                                      # 更改默认权限
+
 uniq                                       # 删除重复的行
+
 uniq -c                                    # 重复的行出现次数
+
 uniq -u                                    # 只显示不重复行
+
 paste a b                                  # 将两个文件合并用tab键分隔开
+
 paste -d'+' a b                            # 将两个文件合并指定'+'符号隔开
+
 paste -s a                                 # 将多行数据合并到一行用tab键隔开
+
 chattr +i /etc/passwd                      # 不得任意改变文件或目录 -i去掉锁 -R递归
+
 more                                       # 向下分面器
+
 locate aaa                                 # 搜索
+
 wc -l file                                 # 查看行数
+
 cp filename{,.bak}                         # 快速备份一个文件
+
 \cp a b                                    # 拷贝不提示 既不使用别名 cp -i
+
 rev                                        # 将行中的字符逆序排列
+
 comm -12 2 3                               # 行和行比较匹配
+
 echo "10.45aa" |cksum                      # 字符串转数字编码，可做校验，也可用于文件校验
+
 iconv -f gbk -t utf8 source.txt > new.txt  # 转换编码
+
 xxd /boot/grub/stage1                      # 16进制查看
+
 hexdump -C /boot/grub/stage1               # 16进制查看
+
 rename source new file                     # 重命名 可正则
+
 watch -d -n 1 'df; ls -FlAt /path'         # 实时某个目录下查看最新改动过的文件
+
 cp -v  /dev/dvd  /rhel4.6.iso9660          # 制作镜像
+
 diff suzu.c suzu2.c  > sz.patch            # 制作补丁
+
 patch suzu.c < sz.patch                    # 安装补丁
+
 
 sort排序{
 
@@ -104,6 +145,7 @@ find查找{
     find . -name 't*' -exec basename {} \;                  # 查找文件名,不取路径
     find . -type f -name "err*" -exec  rename err ERR {} \; # 批量改名(查找err 替换为 ERR {}文件
     find path -name *name1* -or -name *name2*               # 查找任意一个关键字
+    find  /etcnit.d/mysqld5.5 | xargs  sed -i '46 s_basedir=_basedir=\/server\/mysql-5.5_'    #查找替换高级用法
 
 }
 

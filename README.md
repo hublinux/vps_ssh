@@ -8,7 +8,7 @@ wget -N --no-check-certificate "https://raw.githubusercontent.com/hublinux/vps_s
 
 
 
-Linux常用命令{
+Linux常用命令
 文件
 
 ls -rtl                                    # 按时间倒叙列出所有目录和文件 ll -rt
@@ -93,7 +93,7 @@ diff suzu.c suzu2.c  > sz.patch            # 制作补丁
 
 patch suzu.c < sz.patch                    # 安装补丁
 
-}
+
 
 sort排序{
 
